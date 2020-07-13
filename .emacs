@@ -58,7 +58,7 @@
  ((string-equal system-type "gnu/linux") ; linux
   (when (member "DejaVu Sans Mono" (font-family-list))
     (set-frame-font "DejaVu Sans Mono-12" t t))))
-;; ???
+
 ;; Chinese font
 (if (string-equal system-type "windows-nt")
  (set-fontset-font
