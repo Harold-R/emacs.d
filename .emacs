@@ -41,6 +41,8 @@
 ;; '/usr/share/emacs/site-lisp/default.el' may override this
 (setq frame-title-format '(buffer-file-name "%f" (dired-directory dired-directory "%b"))) ;full file path
 (global-set-key "\M-/" 'hippie-expand) ;try different way of expanding
+ 
+(require 'tramp) ;(featurep 'tramp) nil, which will cause "waiting for prompts from remote shell"
 
 ;; "tsdh-dark" "tango-dark"
 (if (locate-file "tango-dark-theme.el"
