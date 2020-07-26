@@ -42,7 +42,9 @@
 (setq frame-title-format '(buffer-file-name "%f" (dired-directory dired-directory "%b"))) ;full file path
 (global-set-key "\M-/" 'hippie-expand) ;try different way of expanding
  
-(require 'tramp) ;(featurep 'tramp) nil, which will cause "waiting for prompts from remote shell"
+;; (featurep 'tramp) nil will cause "waiting for prompts from remote shell" message holding
+;; C-x f /ssh:root@1.1.1.1:/.....
+(require 'tramp)
 
 ;; "tsdh-dark" "tango-dark"
 (if (locate-file "tango-dark-theme.el"
