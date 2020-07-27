@@ -43,8 +43,8 @@
 (global-set-key "\M-/" 'hippie-expand) ;try different way of expanding
  
 ;; (featurep 'tramp) nil will cause "waiting for prompts from remote shell" message holding
-;; C-x f /ssh:root@1.1.1.1:/.....
-(require 'tramp)
+;; C-x f /ssh:root@1.1.1.1:/..... ;; /su::/etc/hosts
+(require 'tramp) ; for older emacs version
 
 ;; "tsdh-dark" "tango-dark"
 (if (locate-file "tango-dark-theme.el"
