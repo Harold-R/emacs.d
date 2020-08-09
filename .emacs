@@ -5,10 +5,6 @@
 
 (add-to-list 'load-path "/backup/emacs.d/") ; yasnippets etc.
 
-;; set initial frame size
-(add-to-list 'default-frame-alist '(height . 40))
-(add-to-list 'default-frame-alist '(width . 100))
-
 (column-number-mode t) ;display line number below
 (show-paren-mode t) ; highlight paired braces
 (save-place-mode t) ; emacs25.1+, goto last place where u previously visit
