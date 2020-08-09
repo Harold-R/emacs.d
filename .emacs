@@ -5,24 +5,22 @@
 
 (add-to-list 'load-path "/backup/emacs.d/") ; yasnippets etc.
 
-(column-number-mode t) ;display line number below
-(show-paren-mode t) ; highlight paired braces
-(save-place-mode t) ; emacs25.1+, goto last place where u previously visit
-;;enable system copy in linux; x-copy emacs-copy system-copy
-(setq x-select-enable-clipboard t)
-(delete-selection-mode t) ;replace selected text when typing
+(column-number-mode 1) ;display line number below
+(show-paren-mode 1) ; highlight paired braces
+(save-place-mode 1) ; emacs25.1+, goto last place where u previously visit
+(delete-selection-mode 1) ;replace selected text when typing
 (desktop-save-mode 1) ;save sessions
 (add-to-list 'desktop-modes-not-to-save 'dired-mode)
 (add-to-list 'desktop-modes-not-to-save 'fundamental-mode)
 (transient-mark-mode 1) ;selection highlight
 (global-set-key "\C-z" 'set-mark-command)
-(electric-pair-mode t)  ;emacs24+
+(electric-pair-mode 1)  ;emacs24+
 (recentf-mode 1) ;recent opened files
 (global-set-key [f12] 'recentf-open-files)
 (global-unset-key (kbd "C-x C-z")) ;suspend frame
 (fset 'yes-or-no-p 'y-or-n-p)
-(global-font-lock-mode t)
-(setq auto-save-mode t)
+(global-font-lock-mode 1)
+(auto-save-mode 1)
 ;; The  default is in the current dir with name #file#s, cluttered
 (add-to-list 'backup-directory-alist
              (cons "." "~/.emacs-backups"))
@@ -37,7 +35,7 @@
 ;; '/usr/share/emacs/site-lisp/default.el' may override this
 (setq frame-title-format '(buffer-file-name "%f" (dired-directory dired-directory "%b"))) ;full file path
 (global-set-key "\M-/" 'hippie-expand) ;try different way of expanding
- 
+
 ;; (featurep 'tramp) nil will cause "waiting for prompts from remote shell" message holding
 ;; C-x f /ssh:root@1.1.1.1:/..... ;; /su::/etc/hosts
 (require 'tramp) ; for older emacs version
@@ -102,7 +100,7 @@
 
 ;; Emacs 27 provides Fido mode, based on Icomplete, providing Ido features
 (icomplete-mode 1) ;; M-x search commands conveniently
-(ido-mode t)
+(ido-mode 1)
 (setq ido-enable-flex-matching t)
 (setq ido-everywhere t) ;; C-x C-f support
 
@@ -230,3 +228,8 @@
  ;; If there is more than one, they won't work right.
  )
 
+
+;; to be tested in linux
+;;enable system copy in linux; x-copy emacs-copy system-copy
+;;(setq x-select-enable-clipboard t) ;obsolete in 25.1+
+;; (setq select-enable-clipboard 1)
