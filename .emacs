@@ -40,51 +40,6 @@
 ;; C-x f /ssh:root@1.1.1.1:/..... ;; /su::/etc/hosts
 (require 'tramp) ; for older emacs version
 
-;; "tsdh-dark" "tango-dark"
-(if (locate-file "tango-dark-theme.el"
-                 (custom-theme--load-path) ; C-h f load-theme to find the path
-                 '("" "c")) (load-theme 'tango-dark))
-
-;; Set default font. (Move cursor to font)M-x describe-char
-(cond
- ((string-equal system-type "windows-nt") ; Microsoft Windows
-  (when (member "Consolas" (font-family-list))
-    (set-frame-font "Consolas-14" t t)))
- ((string-equal system-type "darwin") ; macOS
-  (when (member "Menlo" (font-family-list))
-    (set-frame-font "Menlo-12" t t)))
- ((string-equal system-type "gnu/linux") ; linux
-  (when (member "DejaVu Sans Mono" (font-family-list))
-    (set-frame-font "DejaVu Sans Mono-12" t t))))
-
-;; Chinese font
-(if (string-equal system-type "windows-nt")
- (set-fontset-font
-  t
-  '(#x4e00 . #x9fff) ; a range of characters
-  (cond
-   ((member "Microsoft YaHei" (font-family-list)) "Microsoft YaHei")
-   ((member "PMingLiU" (font-family-list)) "PMingLiU")
-   ((member "Microsoft YaHei UI" (font-family-list)) "Microsoft YaHei UI")
-   ((member "MingLiU" (font-family-list)) "MingLiU")
-   ((member "DengXian" (font-family-list)) "DengXian"))))
-
-;; coding
-(setq default-buffer-file-coding-system 'utf-8)
-(prefer-coding-system 'utf-8)
-(set-default-coding-systems 'utf-8)
-(set-terminal-coding-system 'utf-8)
-(set-keyboard-coding-system 'utf-8)
-(set-clipboard-coding-system 'utf-8) ; between Emacs and X windows, x-copy
-(when (eq system-type 'windows-nt) ; Copy in windows use utf-16-le
-  (set-next-selection-coding-system 'utf-16-le)
-  (set-selection-coding-system 'utf-16-le)
-  (set-clipboard-coding-system 'utf-16-le))
-
-;; Transpose lines - use the shipped C-x C-t, keyboard macro
-(global-set-key [(meta up)] "\C-x\C-t\C-p\C-p\C-a")
-(global-set-key [(meta down)] "\C-n\C-x\C-t\C-p\C-a")
-
 ;; TAB
 (setq-default indent-tabs-mode nil)
 (setq default-tab-width 4)
@@ -124,6 +79,51 @@
 ;;; Org-mode
 (add-hook 'org-mode-hook 'turn-on-visual-line-mode) ; more readable for word wrap
 (add-hook 'org-mode-hook 'org-indent-mode) ;cleaner outline view
+
+;; coding
+(setq default-buffer-file-coding-system 'utf-8)
+(prefer-coding-system 'utf-8)
+(set-default-coding-systems 'utf-8)
+(set-terminal-coding-system 'utf-8)
+(set-keyboard-coding-system 'utf-8)
+(set-clipboard-coding-system 'utf-8) ; between Emacs and X windows, x-copy
+(when (eq system-type 'windows-nt) ; Copy in windows use utf-16-le
+  (set-next-selection-coding-system 'utf-16-le)
+  (set-selection-coding-system 'utf-16-le)
+  (set-clipboard-coding-system 'utf-16-le))
+
+;; Theme: "tsdh-dark" "tango-dark"
+(if (locate-file "tango-dark-theme.el"
+                 (custom-theme--load-path) ; C-h f load-theme to find the path
+                 '("" "c")) (load-theme 'tango-dark))
+
+;; Set default font. (Move cursor to font)M-x describe-char
+(cond
+ ((string-equal system-type "windows-nt") ; Microsoft Windows
+  (when (member "Consolas" (font-family-list))
+    (set-frame-font "Consolas-14" t t)))
+ ((string-equal system-type "darwin") ; macOS
+  (when (member "Menlo" (font-family-list))
+    (set-frame-font "Menlo-12" t t)))
+ ((string-equal system-type "gnu/linux") ; linux
+  (when (member "DejaVu Sans Mono" (font-family-list))
+    (set-frame-font "DejaVu Sans Mono-12" t t))))
+
+;; Chinese font
+(if (string-equal system-type "windows-nt")
+ (set-fontset-font
+  t
+  '(#x4e00 . #x9fff) ; a range of characters
+  (cond
+   ((member "Microsoft YaHei" (font-family-list)) "Microsoft YaHei")
+   ((member "PMingLiU" (font-family-list)) "PMingLiU")
+   ((member "Microsoft YaHei UI" (font-family-list)) "Microsoft YaHei UI")
+   ((member "MingLiU" (font-family-list)) "MingLiU")
+   ((member "DengXian" (font-family-list)) "DengXian"))))
+
+;; Transpose lines - use the shipped C-x C-t, keyboard macro
+(global-set-key [(meta up)] "\C-x\C-t\C-p\C-p\C-a")
+(global-set-key [(meta down)] "\C-n\C-x\C-t\C-p\C-a")
 
 ;; ---------------- snippets ----------------------
 ;; delete leading whitespace at each line in region
