@@ -209,7 +209,19 @@
   ;; (setq auto-package-update-delete-old-versions t)
   ;; (setq auto-package-update-hide-results t)
   (auto-package-update-at-time "03:00")
+  (setq auto-package-update-prompt-before-update t)
+  (setq auto-package-update-delete-old-versions t)             
   (auto-package-update-maybe))
+
+;; Proxy: To test: M-x eww then www.google.com
+(defun toggle-proxy ()
+  "Toggle http/https proxy."
+  (interactive)
+  (if url-proxy-services
+      (setq url-proxy-services nil)
+    (setq url-proxy-services '(("http" . "127.0.0.1:10809")
+                               ("https" . "127.0.0.1:10809"))))
+  (message "Proxy is: %s" url-proxy-services))
 
 ;;-------------------------------------------------------------------------------------
 
