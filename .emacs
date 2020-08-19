@@ -132,7 +132,7 @@
   (interactive)
   (if url-proxy-services
       (setq url-proxy-services nil)
-    (let ((port (read-string "port" nil nil "10809")))
+    (let ((port (read-string "set the port or use the default 10809: " nil nil "10809")))
       (setq url-proxy-services (list (cons "http" (concat "127.0.0.1:" port ))
                                      (cons "https" (concat "127.0.0.1:" port ))))))
   (message "Proxy is: %s" url-proxy-services))
