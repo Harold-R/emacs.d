@@ -126,6 +126,17 @@
 (global-set-key [(meta down)] "\C-n\C-x\C-t\C-p\C-a")
 
 ;; ---------------- snippets ----------------------
+;; Proxy: To test: M-x eww then www.google.com
+(defun toggle-proxy ()
+  "Toggle http/https proxy."
+  (interactive)
+  (if url-proxy-services
+      (setq url-proxy-services nil)
+    (let ((port (read-string "port" nil nil "10809")))
+      (setq url-proxy-services (list (cons "http" (concat "127.0.0.1:" port ))
+                                     (cons "https" (concat "127.0.0.1:" port ))))))
+  (message "Proxy is: %s" url-proxy-services))
+
 ;; delete leading whitespace at each line in region
 (defun delete-leading-whitespace (start end)
   (interactive "*r")
@@ -212,16 +223,6 @@
   (setq auto-package-update-prompt-before-update t)
   (setq auto-package-update-delete-old-versions t)             
   (auto-package-update-maybe))
-
-;; Proxy: To test: M-x eww then www.google.com
-(defun toggle-proxy ()
-  "Toggle http/https proxy."
-  (interactive)
-  (if url-proxy-services
-      (setq url-proxy-services nil)
-    (setq url-proxy-services '(("http" . "127.0.0.1:10809")
-                               ("https" . "127.0.0.1:10809"))))
-  (message "Proxy is: %s" url-proxy-services))
 
 ;;-------------------------------------------------------------------------------------
 
