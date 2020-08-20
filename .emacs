@@ -81,7 +81,6 @@
 (add-hook 'org-mode-hook 'org-indent-mode) ;cleaner outline view
 
 ;; coding
-(setq default-buffer-file-coding-system 'utf-8)
 (prefer-coding-system 'utf-8)
 (set-default-coding-systems 'utf-8)
 (set-terminal-coding-system 'utf-8)
