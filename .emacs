@@ -245,4 +245,4 @@
 ;; to be tested in linux
 ;;enable system copy in linux; x-copy emacs-copy system-copy
 ;;(setq x-select-enable-clipboard t) ;obsolete in 25.1+
-;; (setq select-enable-clipboard 1)
+;; (setq select-enable-clipboard 1)  ; use this and test in linux
