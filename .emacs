@@ -239,8 +239,3 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
-
-;; to be tested in linux
-;;enable system copy in linux; x-copy emacs-copy system-copy
-;;(setq x-select-enable-clipboard t) ;obsolete in 25.1+
-;; (setq select-enable-clipboard 1)  ; set to 0 and test in linux, in windows is all right, the default is t, so no need to add
