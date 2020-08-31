@@ -136,11 +136,14 @@
         (setq url-proxy-services (list (cons "http" (concat "127.0.0.1:" port ))
                                        (cons "https" (concat "127.0.0.1:" port ))))
         (message "win's proxy is: %s " url-proxy-services))))
-  (when (eq system-type 'gnu/linux)
-    (let ((port (read-string "Linux: set the port or use the default 1081: " nil nil "1081")))
-      (setq url-gateway-method 'socks)
-      (setq socks-server (list "Default server" "127.0.0.1" port 5))
-      (message "linux's proxy 127.0.0.1:%s." port))))
+  (when (eq system-type 'gnu/linux) ; to be tested in linux for https
+    (if (eq url-gateway-method 'native)
+        (let ((port (read-string "Linux: set the port or use the default 1081: " nil nil "1081")))
+          (setq url-gateway-method 'socks)
+          (setq socks-server (list "Default server" "127.0.0.1" port 5))
+          (message "linux's proxy 127.0.0.1:%s." port))
+      (setq url-gateway-method 'native)
+      (message "url-gateway-method native"))))
 
 ;; delete leading whitespace at each line in region
 (defun delete-leading-whitespace (start end)
