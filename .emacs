@@ -1,6 +1,7 @@
 ;;;;;;;;; simplicity ;;;;;;;;;
 
-(package-initialize)
+(when (< emacs-major-version 27)
+  (package-initialize))
 (setq debug-on-error t)
 
 (add-to-list 'load-path "/backup/emacs.d/") ; yasnippets etc.
@@ -53,11 +54,12 @@
 (setq uniquify-buffer-name-style 'post-forward-angle-brackets)
 (setq uniquify-ignore-buffers-re "\\`\\*")
 
-;; Emacs 27 provides Fido mode, based on Icomplete, providing Ido features
-(icomplete-mode 1) ;; M-x search commands conveniently
-(ido-mode 1)
-(setq ido-enable-flex-matching t)
-(setq ido-everywhere t) ;; C-x C-f support
+(if (>= emacs-major-version 27)
+    (fido-mode 1)
+  (icomplete-mode 1) ;; M-x search commands conveniently
+  (ido-mode 1)
+  (setq ido-enable-flex-matching t)
+  (setq ido-everywhere t)) ;; C-x C-f support
 
 ;; ibuffer, emacs 22+
 (global-set-key (kbd "C-x C-b") 'ibuffer)
