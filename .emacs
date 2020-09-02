@@ -129,14 +129,14 @@
 (defun toggle-proxy ()
   "Toggle http/https proxy"
   (interactive)
-  (when (eq system-type 'windows-nt)
+  (when (eq system-type 'windows-nt)  ;both http and https works
     (if url-proxy-services
         (setq url-proxy-services nil)
       (let ((port (read-string "set the port or use the default 10809: " nil nil "10809")))
         (setq url-proxy-services (list (cons "http" (concat "127.0.0.1:" port ))
                                        (cons "https" (concat "127.0.0.1:" port ))))
         (message "win's proxy is: %s " url-proxy-services))))
-  (when (eq system-type 'gnu/linux) ; to be tested in linux for https
+  (when (eq system-type 'gnu/linux) ; http's ok, not the https
     (if (eq url-gateway-method 'native)
         (let ((port (read-string "Linux: set the port or use the default 1081: " nil nil "1081")))
           (setq url-gateway-method 'socks)
