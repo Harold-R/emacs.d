@@ -94,7 +94,7 @@
   (set-clipboard-coding-system 'utf-16-le))
 
 ;; Theme: "tsdh-dark" "tango-dark"
-(if (locate-file "tango-dark-theme.el"
+(when (locate-file "tango-dark-theme.el"
                  (custom-theme--load-path) ; C-h f load-theme to find the path
                  '("" "c")) (load-theme 'tango-dark))
 
