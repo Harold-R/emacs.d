@@ -139,7 +139,7 @@
         (setq url-proxy-services (list (cons "http" (concat "127.0.0.1:" port ))
                                        (cons "https" (concat "127.0.0.1:" port ))))
         (message "win's proxy is: %s " url-proxy-services))))
-  (when (eq system-type 'gnu/linux) ; http's ok, not the https
+  (when (eq system-type 'gnu/linux) ; http's ok, not the https, use proxychains???
     (if (eq url-gateway-method 'native)
         (let ((port (read-string "Linux: set the port or use the default 1081: " nil nil "1081")))
           (setq url-gateway-method 'socks)
