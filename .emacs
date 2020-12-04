@@ -127,7 +127,8 @@
 (global-set-key [(meta down)] "\C-n\C-x\C-t\C-p\C-a")
 
 ;; ---------------- snippets ----------------------
-;; Proxy: To test: M-x eww then www.google.com
+;; Proxy
+;; To test: M-x eww then google.com, https://google.com
 (defun toggle-proxy ()
   "Toggle http/https proxy"
   (interactive)
@@ -147,7 +148,7 @@
       (setq url-gateway-method 'native)
       (message "url-gateway-method native"))))
 
-;; delete leading whitespace at each line in region
+;; delete leading whitespace at each line in region 
 (defun delete-leading-whitespace (start end)
   (interactive "*r")
   (save-excursion
