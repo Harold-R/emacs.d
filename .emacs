@@ -217,6 +217,7 @@
   (setq-default TeX-engine 'xetex)) ; default engine
 
 ;; Used with AUCTeX to speedup insertion of environment and math templates
+;; Also, you can do it with yasnippet
 (use-package cdlatex
   :ensure t
   :config
