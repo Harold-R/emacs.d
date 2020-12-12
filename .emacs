@@ -168,6 +168,9 @@
 (eval-when-compile (require 'use-package))
 
 ;; ---------------- golang gopls lsp-ui company yasnippet -------
+;; First u need to install gopls //https://github.com/golang/tools/blob/master/gopls/doc/user.md
+;; go get golang.org/x/tools/gopls@latest // don't use -u
+
 (use-package go-mode
   :ensure t
   :commands go-mode)
