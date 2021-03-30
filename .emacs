@@ -1,12 +1,11 @@
-;;;;;;;;; simplicity ;;;;;;;;;
 
 (when (< emacs-major-version 27)
   (package-initialize))
 (setq debug-on-error t)
 
 ;; initial height and width
-(add-to-list 'default-frame-alist '(height . 50))
-(add-to-list 'default-frame-alist '(width . 90))
+;;(add-to-list 'default-frame-alist '(height . 50))
+;;(add-to-list 'default-frame-alist '(width . 90))
 
 (add-to-list 'load-path "/backup/emacs.d/") ; yasnippets etc.
 
@@ -106,7 +105,7 @@
 (cond
  ((string-equal system-type "windows-nt") ; Microsoft Windows
   (when (member "Consolas" (font-family-list))
-    (set-frame-font "Consolas-14" t t)))
+    (set-frame-font "Consolas-12" t t)))
  ((string-equal system-type "darwin") ; macOS
   (when (member "Menlo" (font-family-list))
     (set-frame-font "Menlo-12" t t)))
