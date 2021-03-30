@@ -4,6 +4,10 @@
   (package-initialize))
 (setq debug-on-error t)
 
+;; initial height and width
+(add-to-list 'default-frame-alist '(height . 50))
+(add-to-list 'default-frame-alist '(width . 90))
+
 (add-to-list 'load-path "/backup/emacs.d/") ; yasnippets etc.
 
 (column-number-mode 1) ;display line number below
