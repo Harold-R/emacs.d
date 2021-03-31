@@ -6,6 +6,20 @@
 ;; initial height and width
 ;;(add-to-list 'default-frame-alist '(height . 50))
 ;;(add-to-list 'default-frame-alist '(width . 90))
+(if (display-graphic-p)
+    (progn
+      (setq initial-frame-alist
+            '(
+              (width . 100) ; chars
+              (height . 50) ; lines
+              (left . 600)  ; pixels; no "right", (- pos) is the relative choice to right
+              (top . 30)))  ; pixels
+      (setq default-frame-alist
+            '(
+              (width . 100)
+              (height . 50)
+              (left . 600)
+              (top . 30)))))
 
 (add-to-list 'load-path "/backup/emacs.d/") ; yasnippets etc.
 
