@@ -27,7 +27,7 @@
 (show-paren-mode 1) ; highlight paired braces
 (save-place-mode 1) ; emacs25.1+, goto last place where u previously visit
 (delete-selection-mode 1) ;replace selected text when typing
-(global-auto-revert-mode 1) ;keep buffers automatically(polling every 5s) up-to-date, but not the remote files(slow)
+; (global-auto-revert-mode 1) ;keep buffers automatically(polling every 5s) up-to-date, but not the remote files(slow)
 (desktop-save-mode 1) ;save sessions
 (add-to-list 'desktop-modes-not-to-save 'dired-mode)
 (add-to-list 'desktop-modes-not-to-save 'fundamental-mode)
